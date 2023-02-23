@@ -6,11 +6,11 @@ import kalopsiaLogo from '../../images/kalopsia-logo.png';
 import kalopsia from '../../images/kalopsia.png';
 
 export default function Home(props) {
-  const [click, setClick] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
   function handleClick() {
-    setClick(!click);
+    setIsVisible(!isVisible);
   }
 
   function handleSubmit(event) {
@@ -27,7 +27,7 @@ export default function Home(props) {
   }
 
   let showModal;
-  if (click) {
+  if (isVisible) {
     showModal = '';
   } else {
     showModal = 'hidden';

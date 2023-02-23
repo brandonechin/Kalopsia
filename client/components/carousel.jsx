@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import jordanImage from '../../images/jordan.png';
-import newBalance from '../../images/new-balance.png';
+import newBalanceImage from '../../images/new-balance.png';
+import asicsImage from '../../images/asics.png';
 
 export function Carousel() {
 
   const images = [
     { url: jordanImage, title: 'Jordan' },
-    { url: newBalance, title: 'New Balance' }
+    { url: newBalanceImage, title: 'New Balance' },
+    { url: asicsImage, title: 'New Balance' }
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentIndex((currentIndex + 1) % images.length);
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(intervalId);
   });

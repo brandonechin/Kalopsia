@@ -1,0 +1,21 @@
+.center {
+  justify-content: center;
+}
+
+.fa-circle {
+  margin: 5px;
+}
+
+.fa-chevron-left {
+  padding-left: 25px;
+  font-size: 25px;
+  padding-top: 30px;
+  cursor: pointer;
+}
+
+.fa-chevron-right {
+  padding-right: 25px;
+  font-size: 25px;
+  padding-top: 30px;
+  cursor: pointer;
+}

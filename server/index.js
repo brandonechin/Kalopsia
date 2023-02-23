@@ -27,6 +27,22 @@ app.get('/api/sneakers', async (req, res, next) => {
   }
 });
 
+// app.post('/api/sneakers', async (req, res, next) => {
+//   const searchTerm = req.body;
+//   const sql = `
+//   select *
+//   from "sneakers"
+//   where "brand" = $1;
+//   `;
+//   const param = [searchTerm];
+//   try {
+//     const sneakers = await db.query(sql, param);
+//     res.json(sneakers);
+//   } catch (err) {
+//     next(err);
+//   }
+// });
+
 app.use(errorMiddleware);
 
 app.listen(process.env.PORT, () => {

@@ -12,7 +12,7 @@ CREATE TABLE "sneakers" (
 	"model" TEXT NOT NULL,
 	"sku" TEXT NOT NULL,
 	"price" TEXT NOT NULL,
-	"imageUrl" TEXT NOT NULL,
+	"imageUrl" TEXT,
 	CONSTRAINT "sneakers_pk" PRIMARY KEY ("productId")
 ) WITH (
   OIDS=FALSE
@@ -26,7 +26,7 @@ CREATE TABLE "users" (
 	"lastName" TEXT NOT NULL,
 	"email" TEXT NOT NULL,
 	"address" TEXT NOT NULL,
-	"address2" TEXT NOT NULL,
+	"address2" TEXT,
 	"city" TEXT NOT NULL,
 	"state" TEXT NOT NULL,
 	"zipCode" TEXT NOT NULL,

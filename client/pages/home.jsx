@@ -1,17 +1,46 @@
 import React, { useState } from 'react';
 // import NavBar from '../components/nav-bar';
 import Banner from '../components/banner';
-import { Carousel } from '../components/carousel';
+import Carousel from '../components/carousel';
+import Footer from '../components/footer';
 import kalopsiaLogo from '../../images/kalopsia-logo.png';
 import kalopsia from '../../images/kalopsia.png';
+import jordan6 from '../../images/jordan6.png';
 
 export default function Home(props) {
   const [isVisible, setIsVisible] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [searchResult, setSearchResult] = useState('');
+  const [images, setImages] = useState('');
 
   function handleClick() {
     setIsVisible(!isVisible);
   }
+
+  window.addEventListener('load', () => {
+
+    async function getImages() {
+      try {
+        const response = await fetch('/api/sneakers');
+        const data = await response.json();
+        // console.log(response);
+        setImages(data.rows);
+        // console.log(data);
+      } catch (err) {
+        console.error('Error fetching data:', err);
+      }
+    }
+
+    getImages();
+  });
+  // fetch('/api/sneakers')
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     setImages(data.rows);
+  //   })
+  //   .catch(function (error) {
+  //     console.error('Error fetching data:', error);
+  //   });
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -20,10 +49,21 @@ export default function Home(props) {
       .then(res => res.json())
       .then(data => {
         // eslint-disable-next-line no-console
-        console.log(data.rows);
-      });
-    // eslint-disable-next-line no-console
-    console.log(searchTerm);
+        if (searchTerm) {
+          const imageArray = [];
+          for (let i = 0; i < images.length; i++) {
+            if (searchTerm === images[i].brand) {
+              imageArray.push(images[i]);
+              // eslint-disable-next-line no-console
+              console.log(images[i]);
+            }
+          }
+          setSearchResult(imageArray);
+        }
+        // eslint-disable-next-line no-console
+        console.log(searchResult);
+      })
+      .catch(err => console.error(err));
   }
 
   let showModal;
@@ -92,6 +132,24 @@ export default function Home(props) {
       </form>
       <Banner />
       <Carousel />
+      <h2 className='text-center underline font-medium mt-4'> New Arrivals</h2>
+      <div className='flex mt-3'>
+        <div className='basis-2/4 hover:bg-gray-100 cursor-pointer'>
+          <img src={images ? images[0].imageUrl : ''} />
+          <p className='font-medium'>{images ? images[0].brand : ''}</p>
+          <p className='text-sm text-gray-400 font-medium'>{images ? images[0].gender : ''} Shoes</p>
+          <p className='font-medium'>${images ? images[0].price : ''}</p>
+
+        </div>
+        <div className='basis-2/4 hover:bg-gray-100 cursor-pointer'>
+          <img src={images ? images[14].imageUrl : ''} />
+          <p className='font-medium'>{images ? images[14].brand : ''}</p>
+          <p className='text-sm text-gray-400 font-medium'>{images ? images[14].gender : ''} Shoes</p>
+          <p className='font-medium'>${images ? images[14].price : ''}</p>
+        </div>
+      </div>
+      <img className='mt-5' src={jordan6}/>
+      <Footer />
     </div>
   );
 }

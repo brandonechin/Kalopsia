@@ -10,6 +10,7 @@ CREATE TABLE "sneakers" (
 	"productId" serial NOT NULL,
 	"brand" TEXT NOT NULL,
 	"model" TEXT NOT NULL,
+	"gender" TEXT NOT NULL,
 	"sku" TEXT NOT NULL,
 	"price" TEXT NOT NULL,
 	"imageUrl" TEXT,

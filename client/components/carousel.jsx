@@ -4,13 +4,13 @@ import newBalanceImage from '../../images/new-balance.png';
 import asicsImage from '../../images/asics.png';
 
 export default function Carousel() {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = [
     { url: jordanImage, title: 'Jordan' },
     { url: newBalanceImage, title: 'New Balance' },
     { url: asicsImage, title: 'Asics' }
   ];
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -44,7 +44,7 @@ export default function Carousel() {
         </div>
       </div>
       <div className='flex justify-center m-2'>
-        <a href='#' className='drop-shadow-lg bg-black text-white py-2 px-3 rounded cursor-pointer'>{`Shop ${images[currentIndex].title} Footwear`} </a>
+        <a href='#sneakerCarousel' className='drop-shadow-lg bg-black text-white py-2 px-3 rounded cursor-pointer'>{`Shop ${images[currentIndex].title} Footwear`} </a>
       </div>
     </>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 import kalopsia from '../../images/kalopsia-footer.png';
 
-export default function Footer(props) {
+export default function Footer() {
   return (
     <div className='bg-[#231f20] h-32 w-full absolute bottom-0 flex'>
       <div>

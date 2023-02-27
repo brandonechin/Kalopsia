@@ -15,8 +15,8 @@ export default function App() {
   const [isVisible, setIsVisible] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchResult, setSearchResult] = useState('');
-  const [images, setImages] = useState('');
+  const [searchResult, setSearchResult] = useState([]);
+  const [images, setImages] = useState(undefined);
   const [route, setRoute] = useState(parseRoute(window.location.hash));
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -86,7 +86,6 @@ export default function App() {
       .then(res => res.json())
       .then(data => {
 
-        // eslint-disable-next-line no-console
         if (searchTerm) {
           const imageArray = [];
           for (let i = 0; i < images.length; i++) {

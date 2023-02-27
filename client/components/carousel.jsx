@@ -1,50 +1,54 @@
-import React, { useState, useEffect } from 'react';
-import jordanImage from '../../images/jordan.png';
-import newBalanceImage from '../../images/new-balance.png';
-import asicsImage from '../../images/asics.png';
+import React from 'react';
 
-export default function Carousel() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+// import React, { useState, useEffect } from 'react';
+// import jordanImage from '../../images/jordan.png';
+// import newBalanceImage from '../../images/new-balance.png';
+// import asicsImage from '../../images/asics.png';
 
-  const images = [
-    { url: jordanImage, title: 'Jordan' },
-    { url: newBalanceImage, title: 'New Balance' },
-    { url: asicsImage, title: 'Asics' }
-  ];
+export default function Carousel({ handleAnchorClick, currentIndex, carouselImages, goToNext, goToPrevious }) {
+  // const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentIndex((currentIndex + 1) % images.length);
-    }, 5000);
+  // const carouselImages = [
+  //   { url: jordanImage, title: 'Jordan' },
+  //   { url: newBalanceImage, title: 'New Balance' },
+  //   { url: asicsImage, title: 'Asics' }
+  // ];
 
-    return () => clearInterval(intervalId);
-  });
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     setCurrentIndex((currentIndex + 1) % carouselImages.length);
+  //   }, 5000);
 
-  function goToPrevious() {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? images.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
-  }
+  //   return () => clearInterval(intervalId);
+  // });
 
-  function goToNext() {
-    const isLastSlide = currentIndex === images.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
-  }
+  // function goToPrevious() {
+  //   const isFirstSlide = currentIndex === 0;
+  //   const newIndex = isFirstSlide ? carouselImages.length - 1 : currentIndex - 1;
+  //   setCurrentIndex(newIndex);
+  // }
+
+  // function goToNext() {
+  //   const isLastSlide = currentIndex === carouselImages.length - 1;
+  //   const newIndex = isLastSlide ? 0 : currentIndex + 1;
+  //   setCurrentIndex(newIndex);
+  // }
 
   return (
     <>
       <div className='center flex'>
         <div className='container'>
           <div className='flex justify-center items-center'>
-            <img src={images[currentIndex].url} className='w-full h-72 object-cover relative'/>
-            <i className="fas fa-chevron-left absolute left-0" onClick={goToPrevious} />
-            <i className="fas fa-chevron-right absolute right-0" onClick={goToNext} />
+            <img src={carouselImages[currentIndex].url} className='w-full h-96 object-cover relative'/>
+            <i className="fas fa-chevron-left absolute left-0 md:left-24 lg:left-1/4 " onClick={goToPrevious} />
+            <i className="fas fa-chevron-right absolute right-0 md:right-24 lg:right-1/4" onClick={goToNext} />
           </div>
         </div>
       </div>
       <div className='flex justify-center m-2'>
-        <a href='#sneakerCarousel' className='drop-shadow-lg bg-black text-white py-2 px-3 rounded cursor-pointer'>{`Shop ${images[currentIndex].title} Footwear`} </a>
+        {/* <a href='#results' onClick={handleAnchorClick} className='drop-shadow-lg bg-black text-white py-2 px-3 rounded cursor-pointer'>{`Shop ${carouselImages[currentIndex].title} Footwear`} </a> */}
+        <a href='#results' onClick={handleAnchorClick} className='drop-shadow-lg bg-black text-white py-2 px-3 rounded cursor-pointer'>Shop All Footwear </a>
+
       </div>
     </>
   );

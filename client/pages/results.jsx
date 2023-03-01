@@ -1,11 +1,12 @@
 import React from 'react';
 import ResultsList from '../components/results-list';
 
-export default function Results({ searchResult, searchTerm, handleAnchorClick, images, carouselImages, currentIndex }) {
+export default function Results({ searchResult, searchTerm, handleAnchorClick, images, isClicked }) {
+  // console.log(images);
   return (
-    <div className='md:flex md:justify-center mb-36'>
-      <div className='md:w-1/2 lg:w-1/2'>
-        <ResultsList searchResult={searchResult} searchTerm={searchTerm} handleAnchorClick={handleAnchorClick} images={images} carouselImages={carouselImages} currentIndex={currentIndex} />
+    <div className='flex justify-center'>
+      <div className='w-11/12 lg:w-10/12 pl-5'>
+        <ResultsList searchResult={searchResult} searchTerm={searchTerm} handleAnchorClick={handleAnchorClick} images={images} isClicked={isClicked} />
       </div>
     </div>
   );

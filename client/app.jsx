@@ -2,14 +2,16 @@ import React, { useState, useEffect } from 'react';
 import parseRoute from './lib/parse-route';
 import Home from './pages/home';
 import Results from './pages/results';
+import ProductDetails from './pages/product-details';
 import NavBar from './components/nav-bar';
 import Banner from './components/banner';
 import Footer from './components/footer';
 import SearchModal from './components/search-modal';
+
 // import SneakerCarousel from './pages/sneakerCarousel';
-import jordanImage from '../images/jordan.png';
-import newBalanceImage from '../images/new-balance.png';
-import asicsImage from '../images/asics.png';
+// import jordanImage from '../images/jordan.png';
+// import newBalanceImage from '../images/new-balance.png';
+// import asicsImage from '../images/asics.png';
 
 export default function App() {
   const [isVisible, setIsVisible] = useState(false);
@@ -18,33 +20,34 @@ export default function App() {
   const [searchResult, setSearchResult] = useState([]);
   const [images, setImages] = useState(undefined);
   const [route, setRoute] = useState(parseRoute(window.location.hash));
-  const [currentIndex, setCurrentIndex] = useState(0);
+  // const [currentIndex, setCurrentIndex] = useState(0);
+  // const [productId, setProductId] = useState(0);
 
-  const carouselImages = [
-    { url: jordanImage, title: 'Jordan' },
-    { url: newBalanceImage, title: 'New Balance' },
-    { url: asicsImage, title: 'Asics' }
-  ];
+  // const carouselImages = [
+  //   { url: jordanImage, title: 'Jordan' },
+  //   { url: newBalanceImage, title: 'New Balance' },
+  //   { url: asicsImage, title: 'Asics' }
+  // ];
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentIndex((currentIndex + 1) % carouselImages.length);
-    }, 5000);
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     setCurrentIndex((currentIndex + 1) % carouselImages.length);
+  //   }, 5000);
 
-    return () => clearInterval(intervalId);
-  });
+  //   return () => clearInterval(intervalId);
+  // });
 
-  function goToPrevious() {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? carouselImages.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
-  }
+  // function goToPrevious() {
+  //   const isFirstSlide = currentIndex === 0;
+  //   const newIndex = isFirstSlide ? carouselImages.length - 1 : currentIndex - 1;
+  //   setCurrentIndex(newIndex);
+  // }
 
-  function goToNext() {
-    const isLastSlide = currentIndex === carouselImages.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
-  }
+  // function goToNext() {
+  //   const isLastSlide = currentIndex === carouselImages.length - 1;
+  //   const newIndex = isLastSlide ? 0 : currentIndex + 1;
+  //   setCurrentIndex(newIndex);
+  // }
 
   function handleChange(event) {
     setRoute(parseRoute(window.location.hash));
@@ -62,6 +65,8 @@ export default function App() {
 
   function handleAnchorClick() {
     setIsClicked(!isClicked);
+    setSearchResult([]);
+    // console.log('yolo');
   }
 
   window.addEventListener('load', () => {
@@ -78,7 +83,7 @@ export default function App() {
     }
     getImages();
   });
-
+  // console.log(images);
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -114,10 +119,15 @@ export default function App() {
   function renderPage() {
     const { path } = route;
     if (path === '') {
-      return <Home images={images} handleAnchorClick={handleAnchorClick} currentIndex={currentIndex} carouselImages={carouselImages} goToNext={goToNext} goToPrevious={goToPrevious} />;
+      return <Home images={images} handleAnchorClick={handleAnchorClick} />;
     }
     if (path === 'results') {
-      return <Results searchResult={searchResult} searchTerm={searchTerm} handleAnchorClick={handleAnchorClick} images={images} carouselImages={carouselImages} currentIndex={currentIndex} />;
+      return <Results searchResult={searchResult} searchTerm={searchTerm} handleAnchorClick={handleAnchorClick} images={images} isClicked={isClicked}/>;
+    }
+    if (path === 'product-details') {
+      const productId = route.params.get('productId');
+      // console.log(productId);
+      return <ProductDetails productId={productId} showModal={showModal}/>;
     }
     // if (path === 'sneakerCarousel') {
     //   return <SneakerCarousel handleAnchorClick={handleAnchorClick} images={images} carouselImages={carouselImages} currentIndex={currentIndex} />;

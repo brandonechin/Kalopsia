@@ -1,4 +1,4 @@
 #root {
   position: relative;
-  min-height: 125vh;
+  min-height: max-content;
 }

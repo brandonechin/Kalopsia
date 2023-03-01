@@ -48,6 +48,7 @@ app.get('/api/products/:productId', (req, res, next) => {
     })
     .catch(err => next(err));
 });
+
 app.get('/api/inventory/:productId', (req, res, next) => {
   const productId = Number(req.params.productId);
   if (!productId) {
@@ -68,6 +69,7 @@ app.get('/api/inventory/:productId', (req, res, next) => {
     })
     .catch(err => next(err));
 });
+
 app.post('/api/addToCart/:productId', (req, res, next) => {
   const productId = Number(req.params.productId);
   if (!productId) {

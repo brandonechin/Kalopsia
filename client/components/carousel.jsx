@@ -40,7 +40,7 @@ export default function Carousel({ handleAnchorClick }) {
       <div className='center flex'>
         <div className='container'>
           <div className='flex justify-center items-center'>
-            <img src={carouselImages[currentIndex].url} className='w-full h-auto object-cover relative'/>
+            <img src={carouselImages[currentIndex].url} className='w-full h-72 xl:h-96 object-cover relative'/>
             <i className="fas fa-chevron-left absolute left-0 md:left-24 lg:left-1/4 " onClick={goToPrevious} />
             <i className="fas fa-chevron-right absolute right-0 md:right-24 lg:right-1/4" onClick={goToNext} />
           </div>

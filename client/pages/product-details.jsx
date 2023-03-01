@@ -111,7 +111,7 @@ export default function ProductDetails({ productId, showModal }) {
             <div className='mt-4 mb-4 ml-2 md:ml-28'>
               <h1 className='font-medium'>{product ? product.brand : ''} {product ? product.model : ''}</h1>
               <h1 className='text-sm text-gray-400 font-medium'>{product ? product.gender : ''}</h1>
-              <h1 className='font-medium'>${product ? product.price : ''}</h1>
+              <h1 className='font-medium'>{product ? '$' + product.price : ''}</h1>
             </div>
           </div>
           <div className='md:flex md:flex-wrap'>

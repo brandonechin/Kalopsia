@@ -18,8 +18,8 @@ export default function Home({ images, handleAnchorClick, currentIndex, carousel
                   <a href="#product-details?productId=1">
                     <img className='h-auto w-auto' src={images ? images[0].imageUrl : ''} />
                     <h2 className='font-medium'>{images ? images[0].brand : ''} {images ? images[0].model : ''}</h2>
-                    <h2 className='text-sm text-gray-400 font-medium'>{images ? images[0].gender : ''} Shoes</h2>
-                    <h2 className='font-medium'>${images ? images[0].price : ''}</h2>
+                    <h2 className='text-sm text-gray-400 font-medium'>{images ? images[0].gender + ' Shoes' : ''} </h2>
+                    <h2 className='font-medium'>{images ? '$' + images[0].price : ''}</h2>
                   </a>
                 </div>
               </div>
@@ -28,8 +28,8 @@ export default function Home({ images, handleAnchorClick, currentIndex, carousel
                   <a href="#product-details?productId=15">
                     <img className='h-auto w-auto' src={images ? images[14].imageUrl : ''} />
                     <h2 className='font-medium'>{images ? images[14].brand : ''} {images ? images[14].model : ''}</h2>
-                    <h2 className='text-sm text-gray-400 font-medium'>{images ? images[14].gender : ''} Shoes</h2>
-                    <h2 className='font-medium'>${images ? images[14].price : ''}</h2>
+                    <h2 className='text-sm text-gray-400 font-medium'>{images ? images[14].gender + ' Shoes' : ''} </h2>
+                    <h2 className='font-medium'>{images ? '$' + images[14].price : ''}</h2>
                   </a>
                 </div>
               </div>

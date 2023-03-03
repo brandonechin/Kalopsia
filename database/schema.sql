@@ -66,7 +66,7 @@ CREATE TABLE "inventory" (
 CREATE TABLE "cart" (
 	"cartId" serial NOT NULL,
 	"userId" integer NOT NULL,
-	"totalCost" integer NOT NULL,
+	"totalCost" text NOT NULL,
 	CONSTRAINT "cart_pk" PRIMARY KEY ("cartId")
 ) WITH (
   OIDS=FALSE
@@ -79,7 +79,7 @@ CREATE TABLE "cartItems" (
 	"cartId" integer NOT NULL,
 	"productId" integer NOT NULL,
 	"quantity" integer NOT NULL,
-	"size" integer NOT NULL,
+	"size" text NOT NULL,
 	CONSTRAINT "cartItems_pk" PRIMARY KEY ("cartItemsId")
 ) WITH (
   OIDS=FALSE

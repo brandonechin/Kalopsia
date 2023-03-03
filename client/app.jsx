@@ -14,6 +14,7 @@ export default function App() {
   const [searchResult, setSearchResult] = useState([]);
   const [images, setImages] = useState(undefined);
   const [route, setRoute] = useState(parseRoute(window.location.hash));
+  const [cartData, setCartData] = useState(null);
 
   function handleChange(event) {
     setRoute(parseRoute(window.location.hash));
@@ -22,17 +23,15 @@ export default function App() {
   useEffect(() => {
     window.addEventListener('hashchange', handleChange);
     return () => window.removeEventListener('hashchange', handleChange);
-
   }, []);
 
   function handleClick() {
     setIsVisible(!isVisible);
   }
 
-  function handleAnchorClick() {
-    setIsClicked(!isClicked);
+  function onAnchorClick() {
+    setIsClicked(true);
     setSearchResult([]);
-    // console.log('yolo');
   }
 
   window.addEventListener('load', () => {
@@ -40,15 +39,14 @@ export default function App() {
       try {
         const response = await fetch('/api/sneakers');
         const data = await response.json();
-        // console.log(response);
         setImages(data.rows);
-        // console.log(data.rows);
       } catch (err) {
         console.error('Error fetching data:', err);
       }
     }
     getImages();
   });
+
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -61,8 +59,6 @@ export default function App() {
           for (let i = 0; i < images.length; i++) {
             if (searchTerm === images[i].brand) {
               imageArray.push(images[i]);
-              // eslint-disable-next-line no-console
-              console.log(images[i]);
             }
           }
           window.location.hash = 'results';
@@ -71,8 +67,6 @@ export default function App() {
       })
       .catch(err => console.error(err));
   }
-  // eslint-disable-next-line no-console
-  console.log(searchResult);
 
   let showModal;
   if (isVisible) {
@@ -84,18 +78,15 @@ export default function App() {
   function renderPage() {
     const { path } = route;
     if (path === '') {
-      return <Home images={images} handleAnchorClick={handleAnchorClick} />;
+      return <Home images={images} onAnchorClick={onAnchorClick} />;
     }
     if (path === 'results') {
-      return <Results searchResult={searchResult} searchTerm={searchTerm} handleAnchorClick={handleAnchorClick} images={images} isClicked={isClicked}/>;
+      return <Results searchResult={searchResult} searchTerm={searchTerm} images={images} isClicked={isClicked} />;
     }
     if (path === 'product-details') {
       const productId = route.params.get('productId');
-      return <ProductDetails productId={productId} showModal={showModal}/>;
+      return <ProductDetails productId={productId} showModal={showModal} cartData={cartData} setCartData={setCartData}/>;
     }
-    // if (path === 'sneakerCarousel') {
-    //   return <SneakerCarousel handleAnchorClick={handleAnchorClick} images={images} carouselImages={carouselImages} currentIndex={currentIndex} />;
-    // }
   }
   return (
     <>

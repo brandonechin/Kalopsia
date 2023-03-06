@@ -7,9 +7,8 @@ export default function ProductDetails({ productId, showModal, cartData, setCart
   const [product, setProduct] = useState();
   const [inventory, setInventory] = useState();
   const [sizeSelect, setSizeSelect] = useState('');
-  // const [cartData, setCartData] = useState(null);
 
-  function onModalClick() {
+  function handleModalClick() {
     setClickModal(!clickModal);
   }
 
@@ -45,13 +44,13 @@ export default function ProductDetails({ productId, showModal, cartData, setCart
     loadInventoryDetail();
   }, [productId]);
 
-  function onSubmitCart(event) {
+  function handleSubmitCart(event) {
     let newQuantity;
     event.preventDefault();
     setClickModal(!clickModal);
-    for (const key in inventory) {
-      if (inventory[key].size === sizeSelect) {
-        newQuantity = --inventory[key].quantity;
+    for (const obj of inventory) {
+      if (obj.size === sizeSelect) {
+        newQuantity = --obj.quantity;
       }
     }
     async function updateInventory() {
@@ -73,7 +72,7 @@ export default function ProductDetails({ productId, showModal, cartData, setCart
     async function insertCartItems(dataInput) {
       const quantity = 1;
       try {
-        const response = await fetch('/api/update-cart-items', {
+        const response = await fetch('/api/insert-cart-items', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ cartId: dataInput.cartId, quantity, productId: Number(productId), sizeSelect })
@@ -97,10 +96,10 @@ export default function ProductDetails({ productId, showModal, cartData, setCart
             body: JSON.stringify({ userIdSet, productPrice })
           });
           const data = await response.json();
-          // eslint-disable-next-line no-console
-          console.log(data);
           setCartData(data);
           insertCartItems(data);
+          // eslint-disable-next-line no-console
+          console.log(data);
         } catch (err) {
           console.error('Error fetching data:', err);
         }
@@ -138,7 +137,7 @@ export default function ProductDetails({ productId, showModal, cartData, setCart
     <div>
       <div className='flex justify-center'>
         <div className='w-4/5'>
-          <CartModal product={product} sizeSelect={sizeSelect} onModalClick={onModalClick} hideModal={hideModal} cartData={cartData}/>
+          <CartModal product={product} sizeSelect={sizeSelect} onModalClick={handleModalClick} hideModal={hideModal} cartData={cartData}/>
           <div className='md:flex md:justify-center'>
             <div className='mt-4 mb-4 ml-2 md:ml-20'>
               <h1 className='font-medium'>{product ? product.brand : ''} {product ? product.model : ''}</h1>
@@ -161,7 +160,7 @@ export default function ProductDetails({ productId, showModal, cartData, setCart
           </div>
           <div className='flex justify-center md:justify-end mb-5'>
             <div className='md:mr-44'>
-              <form onSubmit={sizeSelect ? onSubmitCart : null} >
+              <form onSubmit={sizeSelect ? handleSubmitCart : null} >
                 <button type='submit' className='shadow-lg h-14 w-48 border rounded-full text-black bg-[#dfefe2]  transform transition scale-100 hover:scale-110'>Add to Cart</button>
               </form>
             </div>

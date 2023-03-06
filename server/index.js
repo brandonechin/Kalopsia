@@ -72,7 +72,6 @@ app.get('/api/inventory/:productId', (req, res, next) => {
 });
 
 app.put('/api/update-inventory', (req, res, next) => {
-  // const productId = Number(req.body.productId);
   const { newQuantity, productId, sizeSelect } = req.body;
   if (!newQuantity || !productId || !sizeSelect) {
     throw new ClientError(400, 'productId must be a positive integer');
@@ -95,10 +94,9 @@ app.put('/api/update-inventory', (req, res, next) => {
 });
 
 app.post('/api/insert-cart', (req, res, next) => {
-  // const productId = Number(req.body.productId);
   const { userIdSet, productPrice } = req.body;
   if (!userIdSet || !productPrice) {
-    throw new ClientError(400, 'productId must be a positive integer');
+    throw new ClientError(400, 'userId must be a positive integer');
   }
   const sql = `
     insert into "cart" ("userId", "totalCost")
@@ -139,7 +137,7 @@ app.put('/api/new-total-cost', (req, res, next) => {
     .catch(err => next(err));
 });
 
-app.post('/api/update-cart-items', (req, res, next) => {
+app.post('/api/insert-cart-items', (req, res, next) => {
   const { cartId, quantity, productId, sizeSelect } = req.body;
   if (!quantity || !productId || !sizeSelect) {
     throw new ClientError(400, 'productId must be a positive integer');

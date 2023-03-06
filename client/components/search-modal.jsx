@@ -1,8 +1,6 @@
 import React from 'react';
 
 export default function SearchModal({ handleSubmit, handleClick, showModal, onChange }) {
-  // eslint-disable-next-line no-console
-  console.log('testing');
   return (
     <form onSubmit={handleSubmit} >
       <div className={`fixed bg-white inset-0 z-20 md:hidden ${showModal}`}>
@@ -19,9 +17,9 @@ export default function SearchModal({ handleSubmit, handleClick, showModal, onCh
         <div className='grid mt-6 ml-4'>
           <h3 className='mb-2 text-sm text-gray-500'>Suggested Searches</h3>
           <a href='#results' onClick={handleClick} className='mb-1'>Nike</a>
-          <a href='#sneakerCarousel' onClick={handleClick} className='mb-1'>New Balance</a>
-          <a href='#sneakerCarousel' onClick={handleClick} className='mb-1'>Asics</a>
-          <a href='#sneakerCarousel' onClick={handleClick} className='mb-1'>Jordan</a>
+          <a href='#' onClick={handleClick} className='mb-1'>New Balance</a>
+          <a href='#' onClick={handleClick} className='mb-1'>Asics</a>
+          <a href='#' onClick={handleClick} className='mb-1'>Jordan</a>
         </div>
       </div>
     </form>

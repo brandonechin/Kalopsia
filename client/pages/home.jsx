@@ -3,13 +3,13 @@ import Carousel from '../components/carousel';
 import jordan6 from '../../images/jordan6.png';
 import Footer from '../components/footer';
 
-export default function Home({ images, handleAnchorClick, currentIndex, carouselImages, goToNext, goToPrevious, productId }) {
+export default function Home({ images, onAnchorClick }) {
 
   return (
     <div>
       <div className='flex justify-center'>
         <div className='md:w-3/4 lg:w-1/2 xl:w-1/2'>
-          <Carousel handleAnchorClick={handleAnchorClick} currentIndex={currentIndex} carouselImages={carouselImages} goToNext={goToNext} goToPrevious={goToPrevious} />
+          <Carousel onAnchorClick={onAnchorClick} />
           <h2 className='text-center underline font-medium mt-4 mb-4'> New Arrivals</h2>
           <div className='flex justify-center'>
             <div className='flex flex-wrap mt-3 w-11/12'>

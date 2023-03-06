@@ -5,8 +5,7 @@ import jordanImage from '../../images/jordan.png';
 import newBalanceImage from '../../images/new-balance.png';
 import asicsImage from '../../images/asics.png';
 
-// export default function Carousel({ handleAnchorClick, currentIndex, carouselImages, goToNext, goToPrevious }) {
-export default function Carousel({ handleAnchorClick }) {
+export default function Carousel({ onAnchorClick }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const carouselImages = [
@@ -21,7 +20,7 @@ export default function Carousel({ handleAnchorClick }) {
     }, 5000);
 
     return () => clearInterval(intervalId);
-  });
+  }, [currentIndex, carouselImages.length]);
 
   function goToPrevious() {
     const isFirstSlide = currentIndex === 0;
@@ -48,7 +47,7 @@ export default function Carousel({ handleAnchorClick }) {
       </div>
       <div className='flex justify-center m-2'>
         {/* <a href='#results' onClick={handleAnchorClick} className='drop-shadow-lg bg-black text-white py-2 px-3 rounded cursor-pointer'>{`Shop ${carouselImages[currentIndex].title} Footwear`} </a> */}
-        <a href='#results' onClick={handleAnchorClick} className='shadow-lg bg-black text-white py-2 px-3 rounded cursor-pointer'>Shop All Footwear </a>
+        <a href='#results' onClick={onAnchorClick} className='shadow-lg bg-black text-white py-2 px-3 rounded cursor-pointer'>Shop All Footwear </a>
 
       </div>
     </>

@@ -1,8 +1,6 @@
 import React from 'react';
 
 export default function CartModal({ product, addToCart, onModalClick, hideModal }) {
-  // eslint-disable-next-line no-console
-  console.log('testing');
   return (
     <>
       <div className={`bg-gray-500 bg-opacity-50 fixed inset-0 z-10 ${hideModal}`} onClick={onModalClick} />

@@ -6,7 +6,7 @@ export default function NavBar({ handleClick, handleSubmit, onChange }) {
   return (
     <nav className="bg-[#dfefe2] border-gray-200 px-2 sm:px-4 py-2 dark:bg-gray-900">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
-        <a href='' className="flex items-center">
+        <a href='#' className="flex items-center">
           <img src={kalopsia} className="h-5 ml-2 sm:ml-0 sm:h-5 " alt="Flowbite Logo" />
         </a>
         <div className="flex md:order-2">

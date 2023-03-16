@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ResultsList({ searchResult, searchTerm, images, isClicked }) {
+export default function ResultsList({ searchResult, searchTerm, products, isClicked, print }) {
   let result;
   if (searchResult.length === 0) {
     result = 'No Results';
@@ -10,6 +10,7 @@ export default function ResultsList({ searchResult, searchTerm, images, isClicke
     result = `${searchResult.length} Results`;
   }
   let sneakerResults;
+
   if (searchResult.length > 0) {
     sneakerResults = searchResult.map(results =>
       <a key={results.productId} className='basis-2/4 xl:basis-1/3 flex justify-center' href={`#product-details?productId=${results.productId}`}>
@@ -22,7 +23,7 @@ export default function ResultsList({ searchResult, searchTerm, images, isClicke
       </a>
     );
   } else if (isClicked) {
-    sneakerResults = images.map(results =>
+    sneakerResults = products.map(results =>
       <a key={results.productId} className='basis-2/4 xl:basis-1/3 flex justify-center' href={`#product-details?productId=${results.productId}`}>
         <li className='mt-10 transform transition scale-100 hover:scale-110 cursor-pointer ml-3'>
           <img className='h-auto w-4/5' src={results.imageUrl} />
@@ -34,11 +35,12 @@ export default function ResultsList({ searchResult, searchTerm, images, isClicke
     );
     result = 'All Sneakers';
   }
+
   return (
     <>
-      <div className='ml-3 mt-3 '>
+      <div className='ml-3 mt-3 font-medium'>
         <h2>Search results for</h2>
-        <h2>{searchTerm}</h2>
+        <h2>{print}</h2>
         <h2 className='text-gray-400 font-medium'>{result}</h2>
       </div>
       <ul className='flex flex-wrap'>

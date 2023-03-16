@@ -38,6 +38,5 @@ export default function CartModal({ product, addToCart, onModalClick, hideModal 
         </div>
       </div>
     </>
-
   );
 }

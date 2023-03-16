@@ -1,7 +1,3 @@
-.center {
-  justify-content: center;
-}
-
 .fa-circle {
   margin: 5px;
 }
@@ -16,4 +12,16 @@
   padding-right: 25px;
   font-size: 25px;
   cursor: pointer;
+}
+
+.h-screen {
+  overflow-y: scroll;
+}
+
+.modal-input {
+  width: 80vw;
+}
+
+.modal-cancel {
+  width: 18vw;
 }

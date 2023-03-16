@@ -1,5 +1,3 @@
-// import React from 'react';
-
 import React, { useState, useEffect } from 'react';
 import jordanImage from '../../images/jordan.png';
 import newBalanceImage from '../../images/new-balance.png';
@@ -46,7 +44,6 @@ export default function Carousel({ onAnchorClick }) {
         </div>
       </div>
       <div className='flex justify-center m-2'>
-        {/* <a href='#results' onClick={handleAnchorClick} className='drop-shadow-lg bg-black text-white py-2 px-3 rounded cursor-pointer'>{`Shop ${carouselImages[currentIndex].title} Footwear`} </a> */}
         <a href='#results' onClick={onAnchorClick} className='shadow-lg bg-black text-white py-2 px-3 rounded cursor-pointer'>Shop All Footwear </a>
 
       </div>

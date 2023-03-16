@@ -1,16 +1,14 @@
 import React from 'react';
 import ResultsList from '../components/results-list';
-import Footer from '../components/footer';
 
-export default function Results({ searchResult, searchTerm, images, isClicked }) {
+export default function Results({ searchResult, searchTerm, products, isClicked, print }) {
   return (
-    <div>
-      <div className='flex justify-center mb-5'>
+    <div className='h-screen'>
+      <div className='flex justify-center'>
         <div className='w-11/12 lg:w-10/12 pl-5'>
-          <ResultsList searchResult={searchResult} searchTerm={searchTerm} images={images} isClicked={isClicked} />
+          <ResultsList print={print} searchResult={searchResult} searchTerm={searchTerm} products={products} isClicked={isClicked}/>
         </div>
       </div>
-      <Footer/>
     </div>
   );
 }

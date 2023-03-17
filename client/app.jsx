@@ -4,6 +4,7 @@ import Home from './pages/home';
 import Results from './pages/results';
 import ProductDetails from './pages/product-details';
 import FooterLinks from './pages/footer-links';
+import Cart from './pages/cart';
 import NavBar from './components/nav-bar';
 import Banner from './components/banner';
 import Footer from './components/footer';
@@ -56,6 +57,8 @@ export default function App() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    // eslint-disable-next-line no-console
+    console.log('test', typeof searchTerm, searchTerm);
     if (isVisible) {
       setIsVisible(!isVisible);
     }
@@ -95,13 +98,16 @@ export default function App() {
       const productId = route.params.get('productId');
       return <ProductDetails productId={productId} cartData={cartData} setCartData={setCartData} />;
     }
+    if (path === 'cart') {
+      return <Cart />;
+    }
     if (path === 'about' || path === 'contact' || path === 'returns') {
       return <FooterLinks route={route}/>;
     }
   }
   return (
     <div className='main-container'>
-      <SearchModal onSubmit={handleSubmit} onClick={handleClick} searchTerm={searchTerm} showModal={showModal} onChange={handleSearchTerm} />
+      <SearchModal onSubmit={handleSubmit} onClick={handleClick} searchTerm={searchTerm} setSearchTerm={setSearchTerm} showModal={showModal} onChange={handleSearchTerm} />
       <div>
         <NavBar onSubmit={handleSubmit} onClick={handleClick} searchTerm={searchTerm} onChange={handleSearchTerm} />
         <Banner />

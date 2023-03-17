@@ -15,7 +15,7 @@ export default function ResultsList({ searchResult, searchTerm, products, isClic
     sneakerResults = searchResult.map(results =>
       <a key={results.productId} className='basis-2/4 xl:basis-1/3 flex justify-center' href={`#product-details?productId=${results.productId}`}>
         <li className='mt-10 transform transition scale-100 hover:scale-110 cursor-pointer ml-3'>
-          <img className='h-auto w-4/5' src={results.imageUrl} />
+          <img className='h-auto w-4/5 object-contain' src={results.imageUrl} />
           <h2 className='font-medium'>{results.brand} {results.model}</h2>
           <h2 className='text-sm text-gray-400 font-medium'>{results.gender}</h2>
           <h2 className='font-medium'>${results.price}</h2>
@@ -26,7 +26,7 @@ export default function ResultsList({ searchResult, searchTerm, products, isClic
     sneakerResults = products.map(results =>
       <a key={results.productId} className='basis-2/4 xl:basis-1/3 flex justify-center' href={`#product-details?productId=${results.productId}`}>
         <li className='mt-10 transform transition scale-100 hover:scale-110 cursor-pointer ml-3'>
-          <img className='h-auto w-4/5' src={results.imageUrl} />
+          <img className='h-auto w-4/5 object-contain' src={results.imageUrl} />
           <h2 className='font-medium'>{results.brand} {results.model}</h2>
           <h2 className='text-sm text-gray-400 font-medium'>{results.gender}</h2>
           <h2 className='font-medium'>${results.price}</h2>

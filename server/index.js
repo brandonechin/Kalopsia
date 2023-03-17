@@ -58,8 +58,10 @@ app.get('/api/inventory/:productId', (req, res, next) => {
   const sql = `
     select *
       from "inventory"
-     where "productId" = $1
+      where "productId" = $1
+      order by "inventoryId"
   `;
+
   const params = [productId];
   db.query(sql, params)
     .then(result => {

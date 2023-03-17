@@ -6,7 +6,7 @@ export default function Footer() {
     <div>
       <div className='bg-[#231f20] h-44 w-full flex'>
         <div className='flex items-center'>
-          <img src={kalopsia} className="h-20 w-25 ml-4"/>
+          <img src={kalopsia} className="h-16 w-25 ml-4"/>
         </div>
         <div className='text-white ml-2 items-center flex text-xs'>
           <a className='mr-5 ' href='#about'>About</a>

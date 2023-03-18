@@ -16,7 +16,7 @@ export default function FooterLinks({ route }) {
     }
   }
   return (
-    <div className='h-screen'>
+    <div className='h-screen flex justify-center items-center'>
       {renderLink()}
     </div>
   );

@@ -3,6 +3,6 @@ import React from 'react';
 export default function Contact() {
   return (
 
-    <h1>Under Construction</h1>
+    <h1 className='text-4xl'>Under Construction...</h1>
   );
 }

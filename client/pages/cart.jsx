@@ -2,6 +2,8 @@ import React from 'react';
 
 export default function Cart() {
   return (
-    <h1> under construction</h1>
+    <div className='h-screen flex justify-center items-center'>
+      <h1 className='text-4xl'>Under Construction...</h1>
+    </div>
   );
 }

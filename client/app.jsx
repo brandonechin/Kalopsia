@@ -40,6 +40,7 @@ export default function App() {
   function handleAnchorClick() {
     setIsClicked(true);
     setSearchResult([]);
+    setPrint('');
   }
 
   window.addEventListener('load', () => {
@@ -92,7 +93,7 @@ export default function App() {
       return <Home products={products} onAnchorClick={handleAnchorClick} />;
     }
     if (path === 'results') {
-      return <Results print={print} searchResult={searchResult} searchTerm={searchTerm} products={products} isClicked={isClicked} />;
+      return <Results print={print} searchResult={searchResult} setSearchTerm={setSearchTerm} searchTerm={searchTerm} products={products} isClicked={isClicked} />;
     }
     if (path === 'product-details') {
       const productId = route.params.get('productId');

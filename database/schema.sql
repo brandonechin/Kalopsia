@@ -54,6 +54,7 @@ CREATE TABLE "orders" (
 
 CREATE TABLE "inventory" (
 	"productId" integer NOT NULL,
+	"inventoryId" integer NOT NULL,
 	"size" text NOT NULL,
 	"quantity" integer NOT NULL,
 	CONSTRAINT "inventory_pk" PRIMARY KEY ("productId","size")

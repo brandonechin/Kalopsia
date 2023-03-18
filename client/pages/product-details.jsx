@@ -19,6 +19,8 @@ export default function ProductDetails({ productId, cartData, setCartData }) {
         const response = await fetch(`/api/products/${productId}`);
         const data = await response.json();
         setProduct(data);
+        // eslint-disable-next-line no-console
+        console.log(data);
       } catch (err) {
         console.error('Error fetching data:', err);
       }
@@ -31,13 +33,8 @@ export default function ProductDetails({ productId, cartData, setCartData }) {
       try {
         const response = await fetch(`/api/inventory/${productId}`);
         const data = await response.json();
-        // console.log(response);
-        // console.log(data);
-        // const obj = {};
-        // for (let i = 0; i < data.length; i++) {
-        //   obj[data[i].size] = data[i].quantity;
-        // }
-        // console.log(obj);
+        // eslint-disable-next-line no-console
+        console.log('inventory', data);
         setInventory(data);
         // console.log(data.rows);
       } catch (err) {
@@ -50,20 +47,13 @@ export default function ProductDetails({ productId, cartData, setCartData }) {
   function handleSubmitCart(event) {
     event.preventDefault();
     setClickModal(!clickModal);
-    setSizeSelect('');
     let newQuantity;
     for (const obj of inventory) {
-
       if (obj.size === sizeSelect) {
         newQuantity = --obj.quantity;
       }
     }
-    // for (const key in inventory) {
 
-    //   if (key === sizeSelect) {
-    //     newQuantity = --inventory[key];
-    //   }
-    // }
     async function updateInventory() {
       try {
         const response = await fetch('/api/update-inventory', {
@@ -134,35 +124,24 @@ export default function ProductDetails({ productId, cartData, setCartData }) {
       }
     }
     insertCart();
+    setSizeSelect('');
   }
 
   const style = 'h-12 w-11/12 shadow-md border mb-2 transform transition scale-100 hover:scale-110 rounded-md';
-  // const sizeArray = [];
+  const outOfStock = [];
+  const outOfStockStyle = 'h-12 w-11/12 shadow-md border mb-2 rounded-md bg-[#d6d3d1] cursor-default';
+  for (let i = 0; i < inventory.length; i++) {
+    if (inventory[i].quantity < 1) {
+      outOfStock.push(inventory[i].size);
+    }
+  }
+
   let sizes;
-  const copyInventory = [...inventory];
-  // eslint-disable-next-line no-console
-  console.log('copy of inventory', copyInventory);
   if (inventory) {
-    sizes = copyInventory.map(results =>
+    sizes = inventory.map(results =>
       <div key={results.size} className='basis-2/4 flex justify-center'>
-        <button onClick={() => setSizeSelect(results.size)} className={sizeSelect === results.size ? `${style} bg-[#dfefe2]` : `${style}`}>{results.size}</button>
-        {/* <button onClick={() => { setSizeSelect(results.size); setSizeClick(!sizeClick); }} className={sizeSelect === results.size ? `${style} bg-[#dfefe2]` : `${style}`}>{results.size}</button> */}
+        <button onClick={outOfStock.includes(results.size) ? null : () => setSizeSelect(results.size)} className={`${outOfStock.includes(results.size) ? `${outOfStockStyle}` : `${style}`} ${sizeSelect === results.size ? `${style} bg-[#dfefe2] ` : null}`}>{results.size}</button>
       </div>);
-
-    // sizes = Object.keys(inventory).map((size, index) =>
-    //   <div key= {index} className='basis-2/4 flex justify-center'>
-    //     <button onClick={() => setSizeSelect(size)} className={sizeSelect === size ? `${style} bg-[#dfefe2]` : `${style}`}>{size}</button>
-    //   </div >);
-
-    // for (const key in newInventory) {
-
-    //   sizes =
-    //     <div className='basis-2/4 flex justify-center'>
-    //       <button onClick={() => setSizeSelect(key)} className={sizeSelect === key ? `${style} bg-[#dfefe2]` : `${style}`}>{key}</button>
-    //     </div >;
-    //   sizeArray.push(sizes);
-    // }
-
   }
 
   return (

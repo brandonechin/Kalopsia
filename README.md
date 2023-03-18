@@ -20,7 +20,7 @@ I have always been passionate about sneakers and wanted to build an application 
 
 ## Live Demo
 
-Try the application live at [https://student-grade-table.lfz.com](https://student-grade-table.lfz.com)
+Try the application live at [https://kalopsia.herokuapp.com](https://kalopsia.herokuapp.com)
 
 ## Features
 

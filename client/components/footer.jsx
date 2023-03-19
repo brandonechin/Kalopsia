@@ -4,9 +4,9 @@ import kalopsia from '../../images/kalopsia-footer.png';
 export default function Footer() {
   return (
     <div>
-      <div className='bg-[#231f20] h-44 w-full flex'>
-        <div className='flex items-center'>
-          <img src={kalopsia} className="h-16 w-25 ml-4"/>
+      <div className='bg-[#231f20] h-44 w-full flex justify-center'>
+        <div className='flex items-center justify-center'>
+          <img src={kalopsia} className="h-16 w-25"/>
         </div>
         <div className='text-white ml-2 items-center flex text-xs'>
           <a className='mr-5 ' href='#about'>About</a>

@@ -9,14 +9,16 @@ I have always been passionate about sneakers and wanted to build an application 
 ## Technologies Used
 
 - React.js
-- Webpack
-- Tailwind CSS
-- Node.js
-- Express.js
-- PostgreSQL
+- JSX
+- JavaScript (ES6)
 - HTML5
 - CSS3
-- Heroku
+- Tailwind CSS
+- PostgreSQL
+- Node.js
+- Express.js
+- Babel
+- Webpack
 
 ## Live Demo
 
@@ -31,7 +33,7 @@ Try the application live at [https://kalopsia.herokuapp.com](https://kalopsia.he
 
 ## Preview
 
-![Kalopsia](/images/preview.gif)
+![Kalopsia](/server/public/images/preview.gif)
 
 ## Development
 

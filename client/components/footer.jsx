@@ -1,5 +1,5 @@
 import React from 'react';
-import kalopsia from '../../images/kalopsia-footer.png';
+import kalopsia from '../../server/public/images/kalopsia-footer.png';
 
 export default function Footer() {
   return (

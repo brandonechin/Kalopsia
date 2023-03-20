@@ -1,6 +1,6 @@
 import React from 'react';
 import Carousel from '../components/carousel';
-import jordan6 from '../../images/jordan6.png';
+import jordan6 from '../../server/public/images/jordan6.png';
 
 export default function Home({ products, onAnchorClick }) {
 

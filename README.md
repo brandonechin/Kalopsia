@@ -31,7 +31,7 @@ Try the application live at [https://kalopsia.herokuapp.com](https://kalopsia.he
 
 ## Preview
 
-![SGT React](assets/sgt-react.gif)
+![Kalopsia](/images/preview.gif)
 
 ## Development
 
@@ -44,7 +44,7 @@ Try the application live at [https://kalopsia.herokuapp.com](https://kalopsia.he
 
 1. Clone the repository.
     ```shell
-    git clone https://github.com/brandonechin/final-project.git
+    git clone https://github.com/brandonechin/kalopsia.git
     ```
 1. Install all dependencies with NPM.
     ```shell

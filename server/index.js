@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(staticMiddleware);
 
 const db = new pg.Pool({
-  connectionString: 'process.env.DATABASE_URL',
+  connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false
   }

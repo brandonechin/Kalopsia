@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(staticMiddleware);
 
 const db = new pg.Pool({
-  connectionString: 'postgres://dev:dev@localhost/kalopsia',
+  connectionString: 'process.env.DATABASE_URL',
   ssl: {
     rejectUnauthorized: false
   }

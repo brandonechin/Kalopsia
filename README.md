@@ -9,18 +9,20 @@ I have always been passionate about sneakers and wanted to build an application 
 ## Technologies Used
 
 - React.js
-- Webpack
-- Tailwind CSS
-- Node.js
-- Express.js
-- PostgreSQL
+- JSX
+- JavaScript (ES6)
 - HTML5
 - CSS3
-- Heroku
+- Tailwind CSS
+- PostgreSQL
+- Node.js
+- Express.js
+- Babel
+- Webpack
 
 ## Live Demo
 
-Try the application live at [https://student-grade-table.lfz.com](https://student-grade-table.lfz.com)
+Try the application live at [https://kalopsia.herokuapp.com](https://kalopsia.herokuapp.com)
 
 ## Features
 
@@ -31,7 +33,7 @@ Try the application live at [https://student-grade-table.lfz.com](https://studen
 
 ## Preview
 
-![SGT React](assets/sgt-react.gif)
+![Kalopsia](/server/public/images/preview.gif)
 
 ## Development
 
@@ -44,7 +46,7 @@ Try the application live at [https://student-grade-table.lfz.com](https://studen
 
 1. Clone the repository.
     ```shell
-    git clone https://github.com/brandonechin/final-project.git
+    git clone https://github.com/brandonechin/kalopsia.git
     ```
 1. Install all dependencies with NPM.
     ```shell

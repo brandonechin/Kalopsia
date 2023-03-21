@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import jordanImage from '../../images/jordan.png';
-import newBalanceImage from '../../images/new-balance.png';
-import asicsImage from '../../images/asics.png';
+import jordanImage from '../../server/public/images/jordan.png';
+import newBalanceImage from '../../server/public/images/new-balance.png';
+import asicsImage from '../../server/public/images/asics.png';
 
 const carouselImages = [
   { url: jordanImage, title: 'Jordan' },

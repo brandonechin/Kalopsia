@@ -1,6 +1,6 @@
 import React from 'react';
-import kalopsiaLogo from '../../images/kalopsia-logo.png';
-import kalopsia from '../../images/kalopsia.png';
+import kalopsiaLogo from '../../server/public/images/kalopsia-logo.png';
+import kalopsia from '../../server/public/images/kalopsia.png';
 
 export default function NavBar({ onSubmit, onClick, onChange, searchTerm }) {
   return (

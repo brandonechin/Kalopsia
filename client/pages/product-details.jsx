@@ -145,28 +145,26 @@ export default function ProductDetails({ productId, cartData, setCartData }) {
   }
 
   return (
-    <div className='h-screen'>
-      <div className='flex justify-center'>
-        <div className='w-4/5 mb-4 mt-8'>
-          <CartModal product={product} sizeSelect={sizeSelect} onModalClick={handleModalClick} hideModal={hideModal} cartData={cartData}/>
-          <div className='md:flex md:flex-wrap'>
-            <div className='mb-2 md:basis-1/2 flex justify-center md:items-center'>
-              <img className='object-contain h-48 md:h-72' src={product ? product.imageUrl : ''} />
+    <div className='flex justify-center'>
+      <div className='w-4/5 mb-4 mt-8'>
+        <CartModal product={product} sizeSelect={sizeSelect} onModalClick={handleModalClick} hideModal={hideModal} cartData={cartData}/>
+        <div className='md:flex md:flex-wrap'>
+          <div className='mb-2 md:basis-1/2 flex justify-center md:items-center'>
+            <img className='object-contain h-48 md:h-72' src={product ? product.imageUrl : ''} />
+          </div>
+          <div className='md:basis-1/2'>
+            <div className='mt-4 mb-4 ml-2'>
+              <h1 className='font-medium'>{product ? product.brand : ''} {product ? product.model : ''}</h1>
+              <h1 className='text-sm text-gray-400 font-medium'>{product ? product.gender : ''}</h1>
+              <h1 className='font-medium'>{product ? '$' + product.price : ''}</h1>
             </div>
-            <div className='md:basis-1/2'>
-              <div className='mt-4 mb-4 ml-2'>
-                <h1 className='font-medium'>{product ? product.brand : ''} {product ? product.model : ''}</h1>
-                <h1 className='text-sm text-gray-400 font-medium'>{product ? product.gender : ''}</h1>
-                <h1 className='font-medium'>{product ? '$' + product.price : ''}</h1>
-              </div>
-              <h1 className='mb-4 ml-2 font-medium '>Select Size</h1>
-              <div className='flex flex-wrap mb-4'>
-                {sizes}
-              </div>
-              <form className='flex justify-center' onSubmit={sizeSelect ? handleSubmitCart : null} >
-                <button type='submit' className='shadow-lg h-14 w-48 border rounded-full text-black bg-[#dfefe2]  transform transition scale-100 hover:scale-110'>Add to Cart</button>
-              </form>
+            <h1 className='mb-4 ml-2 font-medium '>Select Size</h1>
+            <div className='flex flex-wrap mb-4'>
+              {sizes}
             </div>
+            <form className='flex justify-center' onSubmit={sizeSelect ? handleSubmitCart : null} >
+              <button type='submit' className='shadow-lg h-14 w-48 border rounded-full text-black bg-[#dfefe2]  transform transition scale-100 hover:scale-110'>Add to Cart</button>
+            </form>
           </div>
         </div>
       </div>

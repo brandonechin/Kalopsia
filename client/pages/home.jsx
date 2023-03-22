@@ -7,7 +7,7 @@ export default function Home({ products, onAnchorClick }) {
   return (
     <div>
       <div className='flex justify-center'>
-        <div className='md:w-3/4 lg:w-3/4 xl:w-1/2'>
+        <div className='md:w-11/12 lg:w-10/12 xl:w-1/2'>
           <Carousel onAnchorClick={onAnchorClick} />
           <h2 className='text-center underline font-medium mt-4 mb-4'> New Arrivals</h2>
           <div className='flex justify-center'>

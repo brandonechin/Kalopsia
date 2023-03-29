@@ -29,7 +29,7 @@ export default function CartModal({ product, addToCart, onModalClick, hideModal 
           </div>
           <div className='flex flex-wrap mt-6'>
             <div className='basis-1/2 justify-center  flex'>
-              <button className=' border rounded-full h-12 w-48 text-lg shadow-lg bg-[#dfefe2] transform transition scale-100 hover:scale-110 '>View Cart</button>
+              <a href='#cart'><button className=' border rounded-full h-12 w-48 text-lg shadow-lg bg-[#dfefe2] transform transition scale-100 hover:scale-110 '>View Cart</button></a>
             </div>
             <div className='basis-1/2 justify-center flex'>
               <a className={`border rounded-full h-12 w-48 text-lg shadow-lg text-center pt-2 bg-slate-100 transform transition scale-100 hover:scale-110 ${hideModal}`} onClick={onModalClick} href='#results'>Continue Shopping</a>

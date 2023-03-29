@@ -160,6 +160,28 @@ app.post('/api/insert-cart-items', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.get('/api/cart-items/:cartId', (req, res, next) => {
+  const cartId = req.params.cartId;
+  if (!cartId) {
+    throw new ClientError(400, 'productId must be a positive integer');
+  }
+  const sql = `
+    select *
+      from "cartItems"
+      where "cartId" = $1
+  `;
+
+  const params = [cartId];
+  db.query(sql, params)
+    .then(result => {
+      if (!result.rows) {
+        throw new ClientError(404, `cannot find cart items with cartId ${cartId}`);
+      }
+      res.json(result.rows);
+    })
+    .catch(err => next(err));
+});
+
 app.use(errorMiddleware);
 
 app.listen(process.env.PORT, () => {

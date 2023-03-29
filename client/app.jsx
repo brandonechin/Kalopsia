@@ -100,7 +100,7 @@ export default function App() {
       return <ProductDetails productId={productId} cartData={cartData} setCartData={setCartData} />;
     }
     if (path === 'cart') {
-      return <Cart />;
+      return <Cart products={products}/>;
     }
     if (path === 'about' || path === 'contact' || path === 'returns') {
       return <FooterLinks route={route}/>;

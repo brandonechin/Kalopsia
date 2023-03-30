@@ -58,8 +58,6 @@ export default function App() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    // eslint-disable-next-line no-console
-    console.log('test', typeof searchTerm, searchTerm);
     if (isVisible) {
       setIsVisible(!isVisible);
     }

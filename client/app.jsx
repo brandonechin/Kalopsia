@@ -58,8 +58,6 @@ export default function App() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    // eslint-disable-next-line no-console
-    console.log('test', typeof searchTerm, searchTerm);
     if (isVisible) {
       setIsVisible(!isVisible);
     }
@@ -100,7 +98,7 @@ export default function App() {
       return <ProductDetails productId={productId} cartData={cartData} setCartData={setCartData} />;
     }
     if (path === 'cart') {
-      return <Cart />;
+      return <Cart products={products}/>;
     }
     if (path === 'about' || path === 'contact' || path === 'returns') {
       return <FooterLinks route={route}/>;

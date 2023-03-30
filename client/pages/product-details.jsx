@@ -20,7 +20,7 @@ export default function ProductDetails({ productId, cartData, setCartData }) {
         const data = await response.json();
         setProduct(data);
         // eslint-disable-next-line no-console
-        console.log(data);
+        // console.log(data);
       } catch (err) {
         console.error('Error fetching data:', err);
       }
@@ -34,7 +34,7 @@ export default function ProductDetails({ productId, cartData, setCartData }) {
         const response = await fetch(`/api/inventory/${productId}`);
         const data = await response.json();
         // eslint-disable-next-line no-console
-        console.log('inventory', data);
+        // console.log('inventory', data);
         setInventory(data);
         // console.log(data.rows);
       } catch (err) {
@@ -61,9 +61,10 @@ export default function ProductDetails({ productId, cartData, setCartData }) {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ newQuantity, productId: Number(productId), sizeSelect })
         });
-        const data = await response.json();
+        await response.json();
+        // const data = await response.json();
         // eslint-disable-next-line no-console
-        console.log(data);
+        // console.log(data);
       } catch (err) {
         console.error('Error fetching data:', err);
       }
@@ -78,9 +79,10 @@ export default function ProductDetails({ productId, cartData, setCartData }) {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ cartId: dataInput.cartId, quantity, productId: Number(productId), sizeSelect })
         });
-        const data = await response.json();
+        await response.json();
+        // const data = await response.json();
         // eslint-disable-next-line no-console
-        console.log(data);
+        // console.log(data);
       } catch (err) {
         console.error('Error fetching data:', err);
       }
@@ -100,7 +102,7 @@ export default function ProductDetails({ productId, cartData, setCartData }) {
           setCartData(data);
           insertCartItems(data);
           // eslint-disable-next-line no-console
-          console.log(data);
+          // console.log(data);
         } catch (err) {
           console.error('Error fetching data:', err);
         }
@@ -117,7 +119,7 @@ export default function ProductDetails({ productId, cartData, setCartData }) {
           setCartData(data);
           insertCartItems(data);
           // eslint-disable-next-line no-console
-          console.log(data);
+          // console.log(data);
         } catch (err) {
           console.error('Error fetching data:', err);
         }
@@ -145,7 +147,7 @@ export default function ProductDetails({ productId, cartData, setCartData }) {
   }
 
   return (
-    <div className='flex justify-center'>
+    <div className='h-screen flex justify-center'>
       <div className='w-4/5 mb-4 mt-8'>
         <CartModal product={product} sizeSelect={sizeSelect} onModalClick={handleModalClick} hideModal={hideModal} cartData={cartData}/>
         <div className='md:flex md:flex-wrap'>

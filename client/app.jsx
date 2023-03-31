@@ -98,7 +98,7 @@ export default function App() {
       return <ProductDetails productId={productId} cartData={cartData} setCartData={setCartData} />;
     }
     if (path === 'cart') {
-      return <Cart products={products}/>;
+      return <Cart products={products} cartData={cartData}/>;
     }
     if (path === 'about' || path === 'contact' || path === 'returns') {
       return <FooterLinks route={route}/>;

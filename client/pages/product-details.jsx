@@ -128,7 +128,8 @@ export default function ProductDetails({ productId, cartData, setCartData }) {
     insertCart();
     setSizeSelect('');
   }
-
+  // eslint-disable-next-line no-console
+  console.log('cartData', cartData);
   const style = 'h-12 w-11/12 shadow-md border mb-2 transform transition scale-100 hover:scale-110 rounded-md';
   const outOfStock = [];
   const outOfStockStyle = 'h-12 w-11/12 shadow-md border mb-2 rounded-md bg-[#d6d3d1] cursor-default';

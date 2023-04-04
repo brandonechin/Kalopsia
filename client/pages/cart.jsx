@@ -38,12 +38,17 @@ export default function Cart({ products, cartData }) {
   console.log('cartProductsInfo', cartProductsInfo);
   // eslint-disable-next-line no-console
   console.log(cartData);
+
+  function handleDelete() {
+
+  }
+
   let sneakers;
   const totalItems = cartProductsInfo ? cartProductsInfo.length : null;
   const totalCost = cartData !== null ? `$${cartData.totalCost}` : '—';
   if (totalItems > 0) {
     sneakers = cartProductsInfo.map(results =>
-      <div key={results.productId} className='flex' >
+      <div key={results.productId} className='border-b pb-3' >
         <li className='mt-10  ml-3 list-none flex'>
           <a href={`#product-details?productId=${results.productId}`} className='cursor-pointer'>
             <img className='h-24 w-4/5 object-contain' src={results.imageUrl} />
@@ -53,8 +58,11 @@ export default function Cart({ products, cartData }) {
               <h2 className='font-medium'>{results.brand} {results.model}</h2>
             </a>
             <h2 className='text-sm text-gray-400 font-medium'>{results.gender}</h2>
-            <h2 className='font-medium'>${results.price}</h2>
             <h2 className='text-sm text-gray-400 font-medium'>Size {results.size}</h2>
+            <i onClick={handleDelete} className="text-gray-400 fa-solid fa-trash-can cursor-pointer" />
+          </div>
+          <div className='flex ml-auto'>
+            <h2 className='font-medium'>${results.price}</h2>
           </div>
         </li>
       </div>);
@@ -65,50 +73,52 @@ export default function Cart({ products, cartData }) {
   // <div className='flex justify-center items-center'>
   //   <h1 className='text-4xl'>Under Construction...</h1>
   // </div>
-    <div className='h-screen'>
-      <div className='md:w-11/12 lg:w-10/12 xl:w-1/2'>
+    <div className='h-screen flex justify-center'>
+      <div className='w-full lg:w-10/12 xl:w-1/2 mx-2'>
         <div className='flex justify-center mt-8 font-medium text-lg'>
           Cart
         </div>
-        <div className='flex justify-center'>
+        <div className='flex justify-center border-b pb-5'>
           {`${totalItems} ${totalItems === 1 ? 'Item' : 'Items'} | ${totalCost}`}
         </div>
         <div>
           {sneakers}
         </div>
-        <div>
-          Summary
-        </div>
-        <div className='flex justify-between'>
-          <div>
-            Subtotal
+        <div className='ml-2 mt-2'>
+          <div className='text-lg font-normal'>
+            Summary
           </div>
-          <div>
-            {totalCost}
+          <div className='flex justify-between'>
+            <div>
+              Subtotal
+            </div>
+            <div>
+              {totalCost}
+            </div>
           </div>
-        </div>
-        <div className='flex justify-between'>
-          <div>
-            Shipping
+          <div className='flex justify-between'>
+            <div>
+              Shipping
+            </div>
+            <div>
+              $500
+            </div>
           </div>
-          <div>
-            $500
+          <div className='flex justify-between'>
+            <div>
+              Tax
+            </div>
+            <div>
+              $500
+            </div>
           </div>
-        </div>
-        <div className='flex justify-between'>
-          <div>
-            Tax
-          </div>
-          <div>
-            $500
-          </div>
-        </div>
-        <div className='flex justify-between'>
-          <div>
-            Total
-          </div>
-          <div>
-            $500
+          <div className='flex justify-between'>
+            <div>
+              Total
+            </div>
+            <div>
+              {totalCost}
+            </div>
           </div>
         </div>
       </div>

@@ -102,7 +102,7 @@ export default function ProductDetails({ productId, cartData, setCartData }) {
           setCartData(data);
           insertCartItems(data);
           // eslint-disable-next-line no-console
-          // console.log(data);
+          console.log(data);
         } catch (err) {
           console.error('Error fetching data:', err);
         }

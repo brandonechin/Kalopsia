@@ -12,7 +12,7 @@ export default function Cart({ products, cartData }) {
         const data = await response.json();
         setCartItems(data);
         // eslint-disable-next-line no-console
-        console.log('cartItems', data);
+        // console.log('cartItems', data);
       } catch (err) {
         console.error(err);
       }
@@ -32,15 +32,45 @@ export default function Cart({ products, cartData }) {
         }
       }
       setCartProductsInfo(productsInfo);
+      // eslint-disable-next-line no-console
+      // console.log('cartProductsInfo', cartProductsInfo);
     }
+
   }, [cartItems, products]);
-  // eslint-disable-next-line no-console
-  console.log('cartProductsInfo', cartProductsInfo);
-  // eslint-disable-next-line no-console
-  console.log(cartData);
 
-  function handleDelete() {
+  // useEffect(() => {
 
+  //   if (cartItems && cartProductsInfo) {
+  //   // eslint-disable-next-line no-console
+  //     console.log('cartItems', cartItems);
+  //     let x;
+  //     for (let l = 0; l < cartItems.length; l++) {
+  //       // cartProductsInfo[l].cartItemsId = cartItems[l].cartItemsId;
+  //       x = cartItems[l].cartItemsId;
+  //       cartProductsInfo[l].cartItemsId = x;
+
+  //       console.log('test', x);
+
+  //       console.log('cartProductInfoLoop', cartProductsInfo[l]);
+  //       console.log('cartItems', cartItems[l]);
+  //     }
+  //   }
+  // }, [cartItems, cartProductsInfo]);
+
+  function handleDelete(event) {
+    // async function cartItems() {
+    //   const cartId = 1;
+    //   try {
+    //     const response = await fetch(`/api/cart-items/${cartId}`);
+    //     const data = await response.json();
+    //     setCartItems(data);
+    //     // eslint-disable-next-line no-console
+    //     console.log('cartItems', data);
+    //   } catch (err) {
+    //     console.error(err);
+    //   }
+    // }
+    // cartItems();
   }
 
   let sneakers;

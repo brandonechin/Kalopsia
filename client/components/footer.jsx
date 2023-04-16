@@ -3,7 +3,7 @@ import kalopsia from '../../server/public/images/kalopsia-footer.png';
 
 export default function Footer() {
   return (
-    <div>
+    <div className='h-20-vh'>
       <div className='bg-[#231f20] h-44 w-full flex justify-center'>
         <div className='flex items-center justify-center'>
           <img src={kalopsia} className="h-16 w-25"/>

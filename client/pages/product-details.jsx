@@ -79,10 +79,10 @@ export default function ProductDetails({ productId, cartData, setCartData }) {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ cartId: dataInput.cartId, quantity, productId: Number(productId), sizeSelect })
         });
-        await response.json();
+        const data = await response.json();
         // const data = await response.json();
         // eslint-disable-next-line no-console
-        // console.log(data);
+        console.log('insertCartItems', data);
       } catch (err) {
         console.error('Error fetching data:', err);
       }

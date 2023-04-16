@@ -25,3 +25,7 @@
 .modal-cancel {
   width: 18vw;
 }
+
+.h-50-vh {
+  overflow-y: scroll;
+}

@@ -2,8 +2,13 @@ import React from 'react';
 import Carousel from '../components/carousel';
 import jordan6 from '../../server/public/images/jordan6.png';
 
-export default function Home({ products, onAnchorClick }) {
-
+export default function Home({ products, onAnchorClick, error }) {
+  let sneakerProductHome;
+  if (error) {
+    sneakerProductHome = <h1 className='flex justify-center'>There was a problem loading products. Please try again.</h1>;
+  } else {
+    sneakerProductHome = <img className='h-auto w-auto' src={products ? products[0].imageUrl : ''} />;
+  }
   return (
     <div>
       <div className='flex justify-center'>
@@ -15,7 +20,8 @@ export default function Home({ products, onAnchorClick }) {
               <div className='basis-2/4 flex justify-center transform transition scale-100 hover:scale-110 cursor-pointer'>
                 <div className='h-auto w-11/12'>
                   <a href="#product-details?productId=1">
-                    <img className='h-auto w-auto' src={products ? products[0].imageUrl : ''} />
+                    {/* <img className='h-auto w-auto' src={products ? products[0].imageUrl : ''} /> */}
+                    {sneakerProductHome}
                     <h2 className='font-medium'>{products ? products[0].brand : ''} {products ? products[0].model : ''}</h2>
                     <h2 className='text-sm text-gray-400 font-medium'>{products ? products[0].gender + ' Shoes' : ''} </h2>
                     <h2 className='font-medium'>{products ? '$' + products[0].price : ''}</h2>

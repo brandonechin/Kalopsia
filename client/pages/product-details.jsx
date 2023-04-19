@@ -79,10 +79,10 @@ export default function ProductDetails({ productId, cartData, setCartData }) {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ cartId: dataInput.cartId, quantity, productId: Number(productId), sizeSelect })
         });
-        await response.json();
+        const data = await response.json();
         // const data = await response.json();
         // eslint-disable-next-line no-console
-        // console.log(data);
+        console.log('insertCartItems', data);
       } catch (err) {
         console.error('Error fetching data:', err);
       }
@@ -102,7 +102,7 @@ export default function ProductDetails({ productId, cartData, setCartData }) {
           setCartData(data);
           insertCartItems(data);
           // eslint-disable-next-line no-console
-          // console.log(data);
+          console.log(data);
         } catch (err) {
           console.error('Error fetching data:', err);
         }
@@ -128,7 +128,8 @@ export default function ProductDetails({ productId, cartData, setCartData }) {
     insertCart();
     setSizeSelect('');
   }
-
+  // eslint-disable-next-line no-console
+  console.log('cartData', cartData);
   const style = 'h-12 w-11/12 shadow-md border mb-2 transform transition scale-100 hover:scale-110 rounded-md';
   const outOfStock = [];
   const outOfStockStyle = 'h-12 w-11/12 shadow-md border mb-2 rounded-md bg-[#d6d3d1] cursor-default';
@@ -147,7 +148,7 @@ export default function ProductDetails({ productId, cartData, setCartData }) {
   }
 
   return (
-    <div className='h-screen flex justify-center'>
+    <div className='flex justify-center'>
       <div className='w-4/5 mb-4 mt-8'>
         <CartModal product={product} sizeSelect={sizeSelect} onModalClick={handleModalClick} hideModal={hideModal} cartData={cartData}/>
         <div className='md:flex md:flex-wrap'>

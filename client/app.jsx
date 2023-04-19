@@ -19,6 +19,7 @@ export default function App() {
   const [products, setProducts] = useState(undefined);
   const [route, setRoute] = useState(parseRoute(window.location.hash));
   const [cartData, setCartData] = useState(null);
+  const [error, setError] = useState('');
 
   function handleChange(event) {
     setRoute(parseRoute(window.location.hash));
@@ -51,6 +52,7 @@ export default function App() {
         setProducts(data.rows);
       } catch (err) {
         console.error('Error fetching data:', err);
+        setError(err);
       }
     }
     getProducts();
@@ -88,7 +90,7 @@ export default function App() {
   function renderPage() {
     const { path } = route;
     if (path === '') {
-      return <Home products={products} onAnchorClick={handleAnchorClick} />;
+      return <Home products={products} onAnchorClick={handleAnchorClick} error={error}/>;
     }
     if (path === 'results') {
       return <Results print={print} searchResult={searchResult} setSearchTerm={setSearchTerm} searchTerm={searchTerm} products={products} isClicked={isClicked} />;
@@ -98,7 +100,7 @@ export default function App() {
       return <ProductDetails productId={productId} cartData={cartData} setCartData={setCartData} />;
     }
     if (path === 'cart') {
-      return <Cart products={products}/>;
+      return <Cart products={products} cartData={cartData}/>;
     }
     if (path === 'about' || path === 'contact' || path === 'returns') {
       return <FooterLinks route={route}/>;
@@ -111,8 +113,13 @@ export default function App() {
         <NavBar onSubmit={handleSubmit} onClick={handleClick} searchTerm={searchTerm} onChange={handleSearchTerm} />
         <Banner />
       </div>
-      {renderPage()}
-      <Footer />
+      <div>
+        {renderPage()}
+      </div>
+      <div>
+
+        <Footer />
+      </div>
     </div>
   );
 }

@@ -103,7 +103,7 @@ export default function Cart({ products, cartData }) {
   // <div className='flex justify-center items-center'>
   //   <h1 className='text-4xl'>Under Construction...</h1>
   // </div>
-    <div className='h-screen flex justify-center'>
+    <div className='flex justify-center'>
       <div className='w-full lg:w-10/12 xl:w-1/2 mx-2'>
         <div className='flex justify-center mt-8 font-medium text-lg'>
           Cart

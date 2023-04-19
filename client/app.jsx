@@ -113,8 +113,11 @@ export default function App() {
         <NavBar onSubmit={handleSubmit} onClick={handleClick} searchTerm={searchTerm} onChange={handleSearchTerm} />
         <Banner />
       </div>
-      <div className='h-50-vh'>
+      <div>
         {renderPage()}
+      </div>
+      <div>
+
         <Footer />
       </div>
     </div>

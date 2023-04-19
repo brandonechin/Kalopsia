@@ -14,18 +14,10 @@
   cursor: pointer;
 }
 
-.h-screen {
-  overflow-y: scroll;
-}
-
 .modal-input {
   width: 80vw;
 }
 
 .modal-cancel {
   width: 18vw;
-}
-
-.h-50-vh {
-  overflow-y: scroll;
 }

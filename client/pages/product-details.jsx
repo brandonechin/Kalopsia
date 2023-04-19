@@ -148,7 +148,7 @@ export default function ProductDetails({ productId, cartData, setCartData }) {
   }
 
   return (
-    <div className='h-screen flex justify-center'>
+    <div className='flex justify-center'>
       <div className='w-4/5 mb-4 mt-8'>
         <CartModal product={product} sizeSelect={sizeSelect} onModalClick={handleModalClick} hideModal={hideModal} cartData={cartData}/>
         <div className='md:flex md:flex-wrap'>
